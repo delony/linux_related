@@ -1,0 +1,15 @@
+实际操作过程中，经常会遇到重复执行同一命令，以观察其结果变化的情况，以前经常是上下键加回车，或是Ctr+p然后回车的方式。
+watch可以全屏执行这个命令，并显示执行结果。
+例如：
+#watch uptime
+#watch -t uptime
+#watch -d -n 1 netstat -ntlp
+#watch -d ’ls -l | fgrep goface’   //监测goface的文件
+#watch -t -differences=cumulative uptime
+#watch -n 60 from  //监控mail
+#watch -n 1 ”df -i;df”  //监测磁盘inode和block数目变化情况
+
+参数具体含义如下
+-n, –interval=<seconds>  指定时间间隔（秒），默认是2s
+-t ,-no-title   会关闭watch命令在顶部的时间间隔
+-d, –differences[=cumulative] 高亮显示变动，-d=cumulative选项会把变动过的地方(不管最近的那次有没有变动)都高亮显示出来.
